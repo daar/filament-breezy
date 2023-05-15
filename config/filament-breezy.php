@@ -115,4 +115,16 @@ return [
     | Sanctum permissions
     */
     "sanctum_permissions" => ["create", "read", "update", "delete"],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Password expiration settings
+    |--------------------------------------------------------------------------
+    | These settings allow setting up password expiration.
+    */
+    "enable_password_expiration" => true,
+    "password_expiration_days" => 30,
+    // Options are: database, email or an empty array.
+    "enable_password_expiration_notification" => ['database', 'email'],
+    'password_expiration_notification_days' => [7, 1],
 ];
