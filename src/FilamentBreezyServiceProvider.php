@@ -2,15 +2,15 @@
 
 namespace JeffGreco13\FilamentBreezy;
 
-use Filament\Facades\Filament;
-use Filament\Navigation\UserMenuItem;
-use Filament\PluginServiceProvider;
-use JeffGreco13\FilamentBreezy\Commands\FilamentBreezyCommand;
-use JeffGreco13\FilamentBreezy\Http\Livewire\Auth;
-use JeffGreco13\FilamentBreezy\Http\Livewire\BreezySanctumTokens;
-use JeffGreco13\FilamentBreezy\Pages\MyProfile;
 use Livewire\Livewire;
+use Filament\Facades\Filament;
+use Filament\PluginServiceProvider;
+use Filament\Navigation\UserMenuItem;
 use Spatie\LaravelPackageTools\Package;
+use JeffGreco13\FilamentBreezy\Pages\MyProfile;
+use JeffGreco13\FilamentBreezy\Http\Livewire\Auth;
+use JeffGreco13\FilamentBreezy\Commands\NotifyCommand;
+use JeffGreco13\FilamentBreezy\Http\Livewire\BreezySanctumTokens;
 
 class FilamentBreezyServiceProvider extends PluginServiceProvider
 {
@@ -22,8 +22,8 @@ class FilamentBreezyServiceProvider extends PluginServiceProvider
             ->hasViews()
             ->hasMigration('add_two_factor_columns_to_table')
             ->hasRoute("web")
-            ->hasTranslations();
-        //->hasCommand(FilamentBreezyCommand::class);
+            ->hasTranslations()
+            ->hasCommand(NotifyCommand::class);
     }
 
     public function packageBooted(): void

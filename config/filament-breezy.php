@@ -118,13 +118,30 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Password expiration settings
+    | Password Expiration Settings
     |--------------------------------------------------------------------------
-    | These settings allow setting up password expiration.
+    | These settings allow for the configuration of password expiration.
     */
+
+    // Enable password expiration
     "enable_password_expiration" => true,
+
+    // Number of days until the password expires
     "password_expiration_days" => 30,
-    // Options are: database, email or an empty array.
-    "enable_password_expiration_notification" => ['database', 'email'],
-    'password_expiration_notification_days' => [7, 1],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Password Expiration Notification Settings
+    |--------------------------------------------------------------------------
+    | These settings allow for the configuration of password expiration notifications.
+    */
+
+    // Number of days before expiration to send notifications
+    "password_expiration_notification_days" => [1, 7],
+
+    // Notification methods for password expiration (Options: database, email, or an empty array for none)
+    "password_expiration_notification_methods" => ["database", "email"],
+
+    // Email address used as the sender for password expiration notifications
+    "password_expiration_notification_email_from" => "email@example.com",
 ];
